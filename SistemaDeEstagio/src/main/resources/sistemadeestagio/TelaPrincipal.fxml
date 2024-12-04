@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="rootBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemadeestagio.TelaPrincipalController">
+   <children>
+      <AnchorPane prefHeight="71.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="50.0" layoutY="21.0" mnemonicParsing="false" onAction="#deslogar" styleClass="button-4" stylesheets="@style.css" text="Sair" />
+            <Button layoutX="203.0" layoutY="23.0" mnemonicParsing="false" onAction="#TelaNovoAluno" styleClass="button-4" stylesheets="@style.css" text="Novo Aluno" />
+            <Label fx:id="praeNome" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="330.0" layoutY="22.0" text="PRAE: Luiz Augusto Pelisson" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="46.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="410.0" layoutY="22.0" mnemonicParsing="false" onAction="#enviarEmailPendencia" styleClass="button-4" stylesheets="@style.css" text="Enviar E-Mail" />
+         </children>
+      </AnchorPane>
+      <Separator prefWidth="600.0" />
+      <HBox prefHeight="37.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="filtrarField" styleClass="button-4" stylesheets="@style.css" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="50.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+            <ChoiceBox fx:id="opcoes" prefWidth="150.0" styleClass="button-4" stylesheets="@style.css" value="NumeroSEI">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Número SEI" />
+                     <String fx:value="Nome" />
+                     <String fx:value="Empresa" />
+                     <String fx:value="Professor Orientador" />
+                  </FXCollections>
+               </items>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="50.0" top="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+            <Button fx:id="filtrarButton" mnemonicParsing="false" onAction="#filtrar" styleClass="button-4" stylesheets="@style.css" text="Filtrar">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="tabela" prefHeight="280.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="numeroSEICol" editable="false" prefWidth="106.0" text="Protocolo SEI" />
+          <TableColumn fx:id="nomeCol" prefWidth="100.0" text="Nome" />
+            <TableColumn fx:id="emailCol" prefWidth="75.0" text="E-Mail" />
+            <TableColumn fx:id="TCECol" prefWidth="75.0" text="TCE" />
+            <TableColumn fx:id="terminoCol" prefWidth="75.0" text="Término" />
+            <TableColumn fx:id="tipoCol" prefWidth="75.0" text="Tipo" />
+            <TableColumn fx:id="termoAditivoCol" prefWidth="93.0" text="Termo Aditivo" />
+            <TableColumn fx:id="pendenciaCol" prefWidth="93.0" text="Pendencia" />
+            <TableColumn fx:id="statusCol" prefWidth="93.0" text="Status" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</VBox>
